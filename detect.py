@@ -257,10 +257,10 @@ def run(
                     # xyxy[0]=左上x, xyxy[1]=左上y, xyxy[2]=右下x, xyxy[3]=右下y
                     x_center = (xyxy[0] + xyxy[2]) / 2
                     y_center = (xyxy[1] + xyxy[3]) / 2
-                    
+
                     # 2. 模拟三维计算 (这是你项目申请书里的核心逻辑仿真)
                     # 假设深度 Z = 300mm (未来由双目视觉提供)
-                    depth_Z = 300 
+                    depth_Z = 300
                     # 简单的小孔成像模拟公式 (需根据实际摄像头标定调整参数)
                     # 假设图像中心是 (320, 240)，焦距 f = 525
                     real_X = (x_center - 320) * depth_Z / 525
