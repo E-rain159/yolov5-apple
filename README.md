@@ -1,82 +1,87 @@
-# YOLOv5 Project
+# YOLOv5 项目说明
 
-This repository contains a YOLOv5-based object detection project for local inference, training, validation, and model export.
+这是一个基于 YOLOv5 的目标检测项目仓库，可用于本地推理、模型训练、效果验证和模型导出。
 
-It includes the common YOLOv5 entry scripts and folders:
+本项目重点面向苹果目标识别，能够对图片、视频或摄像头画面中的苹果进行检测，也可以继续扩展到其他类别目标。
 
-- `detect.py`: run object detection inference
-- `train.py`: train a model
-- `val.py`: validate a model
-- `export.py`: export a model
-- `models/`: model configs
-- `data/`: dataset configs
-- `utils/`: utility functions
-- `runs/`: training and inference outputs
+仓库中包含 YOLOv5 的常用脚本和目录：
 
-## Features
+- `detect.py`：目标检测推理
+- `train.py`：模型训练
+- `val.py`：模型验证
+- `export.py`：模型导出
+- `models/`：模型配置文件
+- `data/`：数据集配置文件
+- `utils/`：工具函数
+- `runs/`：训练和推理结果输出目录
 
-- Image, video, webcam, folder, and stream inference
-- Custom dataset training
-- Model validation and export
-- PyTorch-based implementation
+## 项目特点
 
-## Requirements
+- 支持苹果目标识别与检测
+- 支持图片、视频、摄像头、文件夹和流媒体推理
+- 支持自定义数据集训练
+- 支持模型验证与导出
+- 基于 PyTorch 实现
 
-- Python 3.8 or newer
-- PyTorch 1.8 or newer
-- CUDA is optional but recommended for GPU training and inference
+## 环境要求
 
-## Installation
+- Python 3.8 及以上
+- PyTorch 1.8 及以上
+- 可选 CUDA，建议在训练或 GPU 推理时使用
 
-Clone the repository and install dependencies:
+## 安装方法
+
+克隆仓库并安装依赖：
 
 ```bash
-git clone <your-repo-url>
+git clone <你的仓库地址>
 cd yolov5-master
 pip install -r requirements.txt
 ```
 
-If the project is already on your machine, just enter the folder and run:
+如果项目已经在本地，只需要进入目录后执行：
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Quick Start
+## 快速开始
 
-### Run detection on an image
+### 1. 图片检测
 
 ```bash
 python detect.py --weights yolov5s.pt --source 92.jpg
 ```
 
-### Run detection with a webcam
+如果你已经训练了苹果识别模型，可以将 `--weights` 替换为你自己的苹果检测权重文件。
+
+### 2. 摄像头检测
 
 ```bash
 python detect.py --weights yolov5s.pt --source 0
 ```
 
-### Train on a custom dataset
+### 3. 自定义数据集训练
 
 ```bash
 python train.py --data data/custom.yaml --weights yolov5s.pt --img 640 --epochs 100
 ```
 
-Update `data/custom.yaml` to match your dataset.
+请根据自己的数据集修改 `data/custom.yaml`。
 
-### Validate a model
+### 4. 模型验证
 
 ```bash
 python val.py --weights yolov5s.pt --data data/coco128.yaml --img 640
 ```
 
-### Export to ONNX
+### 5. 导出 ONNX 模型
 
 ```bash
 python export.py --weights yolov5s.pt --include onnx
 ```
 
-## Project Structure
+## 项目结构
 
 ```text
 yolov5-master/
@@ -93,29 +98,30 @@ yolov5-master/
 |- requirements.txt
 ```
 
-## Notes
+## 使用说明
 
-- `runs/` usually contains generated experiment output and should not grow too large in GitHub
-- `yolov5s.pt` is a pretrained weight file
-- Large raw datasets should not be uploaded directly to GitHub
+- 项目当前可以作为苹果识别项目的基础仓库使用
+- `runs/` 通常保存推理或训练生成的结果，不建议上传过多实验输出到 GitHub
+- `yolov5s.pt` 是预训练权重文件
+- 如果后续加入自己的大规模数据集，建议不要直接上传原始数据到 GitHub
 
-## Upload to GitHub
+## 上传到 GitHub
 
-After updating the README, commit and push again:
+修改完成后，可以执行以下命令重新提交并推送：
 
 ```bash
 git add README.md
-git commit -m "Rewrite README"
+git commit -m "Rewrite README in Chinese"
 git push -u origin main
 ```
 
-If HTTPS push still fails because the connection resets, try:
+如果推送时仍然出现连接中断问题，可以先执行：
 
 ```bash
 git config --global http.version HTTP/1.1
 git push -u origin main
 ```
 
-## License
+## 许可证
 
-This project is based on the YOLOv5 code structure. See [LICENSE](LICENSE) for the original license information.
+本项目基于 YOLOv5 代码结构整理和使用，原始许可证请查看仓库中的 [LICENSE](LICENSE) 文件。
