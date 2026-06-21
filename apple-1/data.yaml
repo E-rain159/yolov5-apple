@@ -1,0 +1,12 @@
+names:
+- 这是苹果呀！！
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: apple-f3ujh-r3zdl
+  url: https://app.roboflow.com/jeeh/apple-f3ujh-r3zdl/1
+  version: 1
+  workspace: jeeh
+test: ../test/images
+train: apple-1/train/images
+val: apple-1/valid/images
